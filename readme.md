@@ -43,3 +43,5 @@ Here 0.428571429 x 7 = 3,000.... therefore the Serial Number + Check Digit is 81
 
 airway-bill-series-generator
 https://www.iatacodefor.com/airway-bill-series-generator/
+
+12433
