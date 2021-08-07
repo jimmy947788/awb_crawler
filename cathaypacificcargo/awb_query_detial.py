@@ -49,6 +49,7 @@ async def main() :
         chromiumPath = "C:/Users/Jimmy Wu/AppData/Local/pyppeteer/pyppeteer/local-chromium/588429/chrome-win32/chrome.exe"
     else:
         chromiumPath = "/usr/bin/chromium-browser"
+    print(f"chromiumPath={chromiumPath}")
 
     userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36';
     headless = True # True: 沒有瀏覽器
@@ -61,7 +62,7 @@ async def main() :
         "executablePath" :  chromiumPath
     }
 
-    with open('data/interesting.txt', 'r') as f:
+    with open('data/interesting_awb.txt', 'r') as f:
         numbers = f.readlines()
         numbers.reverse()
 
@@ -103,7 +104,7 @@ async def main() :
                 flight = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(5)")
                 print(f"flight={flight}")
                 print(f"{origin} -> {destination} , {status} {flight}")
-                with open("data/Air_cargo_tracking.csv", "a") as f: 
+                with open("data/interesting_awb_detial.csv", "a") as f: 
                     f.write(f"{number},{origin},{destination},{status},{flight}\n")
             else:
                 with open("data/interesting_awb_detial.csv", "a") as f: 
