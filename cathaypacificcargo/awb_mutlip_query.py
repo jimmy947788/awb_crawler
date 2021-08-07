@@ -31,10 +31,10 @@ print(f"workerFolder={workerFolder}" )
 start_number = 6022000
 end_number = 7000000
 batch_number = str(start_number)[0]
-query_result_file = os.path.join(workerFolder, f"cathaypacificcargo/data/multi_query_result_{batch_number}.csv")
-print(f"query_result_file={query_result_file}" )
-if os.path.exists(query_result_file):
-    with open(query_result_file, 'r',  encoding="utf-8") as f:
+multi_query_result_file = os.path.join(workerFolder, f"cathaypacificcargo/data/multi_query_result_{batch_number}.csv")
+print(f"multi_query_result_file={multi_query_result_file}" )
+if os.path.exists(multi_query_result_file):
+    with open(multi_query_result_file, 'r',  encoding="utf-8") as f:
         last_line = f.readlines()[-1]
     start_number = int(last_line.split(',')[0][4:-1])
 
@@ -78,7 +78,7 @@ while True:
 
             if columns[0]:
                 strColumns =  ",".join(columns[1:])   #remove first column
-                with open(query_result_file, "a", encoding="utf-8") as f: 
+                with open(multi_query_result_file, "a", encoding="utf-8") as f: 
                     f.write(f"{strColumns}\n")
 
     print("wait 5 secons....")
