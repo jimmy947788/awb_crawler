@@ -8,12 +8,13 @@
 - 國泰航運 [cathaypacificcargo](cathaypacificcargo/)
 ### 國泰航運
 1. 多筆快速查詢
-   - 爬蟲 [awb_query_mutlip.py](cathaypacificcargo/awb_query_mutlip.py)
-   - 結果 [awb_query_result.csv](cathaypacificcargo/data/awb_query_result.csv)
+   - 爬蟲 [awb_mutlip_query.py](cathaypacificcargo/awb_mutlip_query.py)
+   - 結果 [multi_query_result_{batch_no}.csv](cathaypacificcargo/data/multi_query_result_6.csv)
+        >batch_no: 為建立初始查詢編號 multi_query_result_.csv 
 2. 單筆詳細查詢
-   - 清單 [awb_query_detial.py](cathaypacificcargo/data/interesting_awb.txt)
-   - 爬蟲 [awb_query_detial.py](cathaypacificcargo/awb_query_detial.py)
-   - 結果 [interesting_awb_detial.csv](cathaypacificcargo/data/interesting_awb_detial.csv)
+   - 清單 [interesting_awb_list.txt](cathaypacificcargo/data/interesting_awb_list.txt)
+   - 爬蟲 [awb_detial_query.py](cathaypacificcargo/awb_detial_query.py)
+   - 結果 [interesting_detial_result.csv](cathaypacificcargo/data/interesting_detial_result.csv)
 
 ### 參考資料
 - [國泰航運查詢網頁](https://www.cathaypacificcargo.com/en-us/manageyourshipment/trackyourshipment.aspx)
