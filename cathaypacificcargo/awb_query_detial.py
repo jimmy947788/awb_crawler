@@ -62,14 +62,14 @@ async def main() :
         "executablePath" :  chromiumPath
     }
 
-    interesting_awb_detial_path = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_detial.csv")
-    with open(interesting_awb_detial_path, "r") as f: 
+    interesting_awb_detial_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_detial.csv")
+    with open(interesting_awb_detial_file, "r") as f: 
         numbers = f.readlines()
         numbers.reverse()
     last_number = numbers[0].split(',')[0]
 
-    interesting_awb_path =  os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb.txt")
-    with open(interesting_awb_path, 'r') as f:
+    interesting_awb_file =  os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb.txt")
+    with open(interesting_awb_file, 'r') as f:
         numbers = f.readlines()
         numbers.reverse()
 
@@ -114,10 +114,10 @@ async def main() :
                 flight = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(5)")
                 print(f"flight={flight}")
                 print(f"{origin} -> {destination} , {status} {flight}")
-                with open(interesting_awb_detial_path, "a") as f: 
+                with open(interesting_awb_detial_file, "a") as f: 
                     f.write(f"{number},{origin},{destination},{status},{flight}\n")
             else:
-                with open(interesting_awb_detial_path, "a") as f: 
+                with open(interesting_awb_detial_file, "a") as f: 
                     f.write(f"{number},,,,\n")
             
         except Exception as e:
