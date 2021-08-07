@@ -62,13 +62,23 @@ async def main() :
         "executablePath" :  chromiumPath
     }
 
-    with open('data/interesting_awb.txt', 'r') as f:
+    interesting_awb_detial_path = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_detial.csv")
+    with open(interesting_awb_detial_path, "r") as f: 
+        numbers = f.readlines()
+        numbers.reverse()
+    last_number = numbers[0].split(',')[0]
+
+    interesting_awb_path =  os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb.txt")
+    with open(interesting_awb_path, 'r') as f:
         numbers = f.readlines()
         numbers.reverse()
 
     for number in numbers:
         number = number.replace("\n", "")
         if not number :
+            continue
+
+        if number >= last_number:
             continue
         
         print(f"number={number}")
@@ -104,10 +114,10 @@ async def main() :
                 flight = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(5)")
                 print(f"flight={flight}")
                 print(f"{origin} -> {destination} , {status} {flight}")
-                with open("data/interesting_awb_detial.csv", "a") as f: 
+                with open(interesting_awb_detial_path, "a") as f: 
                     f.write(f"{number},{origin},{destination},{status},{flight}\n")
             else:
-                with open("data/interesting_awb_detial.csv", "a") as f: 
+                with open(interesting_awb_detial_path, "a") as f: 
                     f.write(f"{number},,,,\n")
             
         except Exception as e:

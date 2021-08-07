@@ -29,10 +29,10 @@ workerFolder = pathlib.Path().resolve()
 print(f"workerFolder={workerFolder}" )
 
 init_number = 6022000
-csvFile = os.path.join(workerFolder, "data/awb_query_result.csv")
-print(f"csvFile={csvFile}" )
-if os.path.exists(csvFile):
-    with open(csvFile, 'r',  encoding="utf-8") as f:
+awb_query_result_file = os.path.join(workerFolder, "cathaypacificcargo/data/awb_query_result.csv")
+print(f"awb_query_result_file={awb_query_result_file}" )
+if os.path.exists(awb_query_result_file):
+    with open(awb_query_result_file, 'r',  encoding="utf-8") as f:
         last_line = f.readlines()[-1]
     init_number = int(last_line.split(',')[0][4:-1])
 
@@ -72,7 +72,7 @@ while True:
 
             if columns[0]:
                 strColumns =  ",".join(columns[1:])   #remove first column
-                with open("data/awb_query_result.csv", "a", encoding="utf-8") as f: 
+                with open(awb_query_result_file, "a", encoding="utf-8") as f: 
                     f.write(f"{strColumns}\n")
 
     print("wait 5 secons....")
