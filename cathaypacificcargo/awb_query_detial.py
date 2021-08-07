@@ -1,9 +1,6 @@
 import asyncio
 import os
-from pyppeteer import launch, page
-import time
-import math
-import js2py
+from pyppeteer import launch
 
 async def getTextFromFrame(frame, selector):
     try:
@@ -15,36 +12,8 @@ async def getTextFromFrame(frame, selector):
     except:
         return ""
 
-async def findNewPage(browser, number) -> page.Page:
-    for p in await browser.pages():
-        title = await p.title()
-        print(title)
-        if number in title:
-            resultPage = p
-            print(resultPage)
-            return resultPage
-    return None
-
 async def main() : 
 
-    check_7dig = js2py.eval_js( """
-        function check_7dig(x)
-        {
-            var prev = 0;
-            var dig;
-            for (var i=0;i<7;i++)
-            {
-                var c = parseInt(x.charAt(i));
-                dig =  c+10*prev;
-                var nn=15;
-                while ((nn*7)>dig) {nn--; };
-                dig = dig-nn*7;
-                prev = dig;
-            }
-            return dig;
-        }
-    """ )
-    
     if os.name == 'nt':
         chromiumPath = "C:/Users/Jimmy Wu/AppData/Local/pyppeteer/pyppeteer/local-chromium/588429/chrome-win32/chrome.exe"
     else:
