@@ -33,11 +33,9 @@ async def main() :
 
     interesting_detial_result_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_detial_result.csv")
     with open(interesting_detial_result_file, "r") as f: 
-        numbers = f.readlines()
-        numbers.reverse()
-    last_number = numbers[0].split(',')[0]
+        already_query_numbers = f.readlines()
 
-    interesting_awb_file =  os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_list.txt")
+    interesting_awb_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_list.txt")
     with open(interesting_awb_file, 'r') as f:
         numbers = f.readlines()
         numbers.reverse()
@@ -47,7 +45,7 @@ async def main() :
         if not number :
             continue
 
-        if number >= last_number:
+        if number in already_query_numbers:
             continue
         
         print(f"number={number}")
