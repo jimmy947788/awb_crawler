@@ -15,6 +15,9 @@
    - 清單 [interesting_awb_list.txt](cathaypacificcargo/data/interesting_awb_list.txt)
    - 爬蟲 [awb_detial_query.py](cathaypacificcargo/awb_detial_query.py)
    - 結果 [interesting_detial_result.csv](cathaypacificcargo/data/interesting_detial_result.csv)
+3. 查詢清單產生器
+   - 程式 [awb_interesting_generator](cathaypacificcargo/awb_interesting_generator.py) 
+   > 從[查尋結果](cathaypacificcargo/data/multi_query_result_6.csv)過濾出有興趣AWB，再和現有的[查詢清單](cathaypacificcargo/data/interesting_awb_list.txt)合併。
 
 ### 參考資料
 - [國泰航運查詢網頁](https://www.cathaypacificcargo.com/en-us/manageyourshipment/trackyourshipment.aspx)
