@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+    worker:
+        build:
+            context: .
+        container_name: awb_crawler
+        restart: always # 生錯誤重新啟動容器
+        volumes:
+            - ./data:/usr/app/data
