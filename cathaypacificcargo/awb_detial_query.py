@@ -6,7 +6,7 @@ from pyppeteer import launch
 import signal
 import psutil
 import awb_interesting_generator
-import paramiko
+import kill_chrome
 
 async def getTextFromFrame(page, selector, timeout=30000):
     try:
@@ -109,22 +109,12 @@ async def run_batch_task(loop, batch_numbers):
     await asyncio.wait(task_list)
 
 
-def killall_chrome():
-    for proc in psutil.process_iter():
-        if os.name == 'nt':
-            PROCNAME = "chrome.exe"
-        else:
-            PROCNAME = "chromium-browse"
-        # check whether the process name matches
-        if proc.name() == PROCNAME:
-            proc.kill()
-
 def signal_handler(signum, frame):
     print('signal_handler: caught signal ' + str(signum))
     if signum == signal.SIGINT.value:
         print('SIGINT')
         loop.close()
-        killall_chrome()
+        kill_chrome.main()
         sys.exit(1)
 
 if __name__ == '__main__': 
@@ -141,25 +131,29 @@ if __name__ == '__main__':
         chromiumPath = "/usr/bin/chromium-browser"
     print(f"chromiumPath={chromiumPath}")
 
-    awb_interesting_generator.main()
+    #awb_interesting_generator.main()
 
+    already_query_numbers = []
     interesting_detial_result_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_detial_result.csv")
     with open(interesting_detial_result_file, "r") as f: 
-        lines = f.readlines()
-        print(f"interesting_detial_result.csv have { len(lines) } lines.")
-        already_query_numbers = list( dict.fromkeys(lines) )
-        print(f"interesting_detial_result.csv remove duplicates have { len(already_query_numbers) } lines.")
+       for row in f:
+           number = row.split(",")[0] 
+           if number not in already_query_numbers:
+                already_query_numbers.append(number)
+    print(f"interesting_detial_result.csv have { len(already_query_numbers) } lines.")
 
+    interesting_awb_numbers = []
     interesting_awb_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_list.txt")
     with open(interesting_awb_file, 'r') as f:
-        lines = f.readlines()
-        print(f"interesting_awb_list.txt have { len(lines) } lines.")
-        interesting_awb_numbers = list( dict.fromkeys(lines) )
-        print(f"interesting_awb_list.txt remove duplicates have { len(interesting_awb_numbers) } lines.")
-        interesting_awb_numbers.reverse()
+       for row in f:
+           number = row.strip()
+           if number not in interesting_awb_numbers:
+                interesting_awb_numbers.append(number)
+    print(f"interesting_awb_list.txt have { len(interesting_awb_numbers) } lines.")
+    interesting_awb_numbers.reverse()
 
     signal.signal(signal.SIGINT, signal_handler)
-    print(signal.SIGINT)
+    #print(signal.SIGINT)
 
     batch_numbers= []
     locker = asyncio.Lock()
@@ -173,14 +167,18 @@ if __name__ == '__main__':
             continue
 
         if number in already_query_numbers:
+            print(f"AWB {number} already get detial.")
             continue
         
         batch_numbers.append(number)
         #print(f"number={number}")
         
         if len(batch_numbers) == 5:
+            ssss = ",".join(batch_numbers)
+            print(f"=====> {ssss} batch task start")
             loop.run_until_complete(run_batch_task(loop, batch_numbers))
-            killall_chrome()
+            print(f"=====> {ssss} batch task all done")
+            kill_chrome.main()
             batch_numbers.clear()
         
     loop.close()          

@@ -17,4 +17,5 @@ echo "found $filter_key counts: $result_count" >> $output_file
 echo "" >> $output_file 
 cat $interesting_detial_result_file | grep "$filter_key" >> $output_file
 
+cp $multi_query_result_file "/var/www/html/no-detial.txt"
 cp $interesting_detial_result_file "/var/www/html/awb-all.txt"

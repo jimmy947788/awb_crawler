@@ -2330,7 +2330,6 @@
 160-64534131,TPE,HKG, Delivered, 05 Aug
 160-64534374,TPE,HKG, Freight accepted at airport,CX479 07 Aug
 160-64537605,KHH,HKG, Delivered, 23 Jul
-160-64532333,,,,
 160-64532440,TPE,HKG, Delivered, 30 Jul
 160-64533932,TPE,HKG, Delivered, 02 Aug
 160-64533055,KHH,HKG, Freight accepted at airport,CX431 07 Aug
@@ -2881,8 +2880,321 @@
 160-64646271,HKG,GDL, Delivered, 22 Jul
 160-64646061,HKG,MIA, Delivered, 28 Jul
 160-64646046,HKG,MEX, Delivered, 26 Jul
-160-64646433,,,,
-160-64646470,,,,
-160-64646455,,,,
-160-64646444,,,,
-160-64646466,,,,
+160-64836413,SGN,HKG, Delivered, 07 Aug
+160-64836435,SGN,HKG, Delivered, 30 Jul
+160-64836402,SGN,HKG, Delivered, 06 Aug
+160-64836424,SGN,HKG, Delivered, 08 Aug
+160-64836380,SGN,HKG, Delivered, 03 Aug
+160-64836376,SGN,HKG, Delivered, 31 Jul
+160-64836365,SGN,HKG, Freight accepted at airport,CX764 08 Aug
+160-64836354,SGN,HKG, Delivered, 07 Aug
+160-64836332,SGN,HKG, Delivered, 05 Aug
+160-64836343,SGN,HKG, Delivered, 06 Aug
+160-64836413,SGN,HKG, Delivered, 07 Aug
+160-64836424,SGN,HKG, Delivered, 08 Aug
+160-64836435,SGN,HKG, Delivered, 30 Jul
+160-64836376,SGN,HKG, Delivered, 31 Jul
+160-64836380,SGN,HKG, Delivered, 03 Aug
+160-64836402,SGN,HKG, Delivered, 06 Aug
+160-64836354,SGN,HKG, Delivered, 07 Aug
+160-64836343,SGN,HKG, Delivered, 06 Aug
+160-64836365,SGN,HKG, Freight accepted at airport,CX764 08 Aug
+160-64836310,SGN,HKG, Delivered, 03 Aug
+160-64836332,SGN,HKG, Delivered, 05 Aug
+160-64836321,SGN,HKG, Delivered, 04 Aug
+160-64836273,SGN,HKG, Delivered, 30 Jul
+160-64836284,SGN,HKG, Delivered, 31 Jul
+160-64836306,SGN,HKG, Delivered, 24 Jul
+160-64836251,SGN,HKG, Delivered, 28 Jul
+160-64836214,SGN,HKG, Delivered, 31 Jul
+160-64836225,SGN,HKG, Delivered, 02 Aug
+160-64836170,SGN,HKG, Delivered, 27 Jul
+160-64836144,SGN,HKG, Delivered, 24 Jul
+160-64836111,SGN,HKG, Delivered, 18 Jul
+160-64833495,ORD,HKG, Delivered, 29 Jul
+160-64835595,ADL,HKG, Freight on hand,CX2174 16 Jul
+160-64833241,NRT,HKG, Freight accepted at airport,CX005 07 Aug
+160-64833204,NRT,HKG, Delivered, 28 Jul
+160-64833226,NRT,HKG, Delivered, 02 Aug
+160-64833215,NRT,HKG, Delivered, 30 Jul
+160-64833193,NRT,HKG, Delivered, 21 Jul
+160-64830942,ATL,PVG, Freight accepted at airport,CX2091 07 Aug
+160-64832994,MTY,PVG, Freight accepted at airport,CX087 06 Aug
+160-64830916,ATL,PVG, Freight accepted at airport,CX2091 07 Aug
+160-64830931,ATL,PEK, Freight accepted at airport,CX2091 07 Aug
+160-64830920,ATL,CTU, Freight accepted at airport,CX2091 07 Aug
+160-64825946,WUH,LHR, Delivered, 05 Aug
+160-64828971,CDG,HKG, Delivered, 24 Jul
+160-64828875,MXP,HKG, Delivered, 03 Aug
+160-64825902,WUH,LHR, Delivered, 05 Aug
+160-64825935,WUH,LHR, Delivered, 05 Aug
+160-64825924,WUH,LHR, Delivered, 05 Aug
+160-64823393,KIX,HKG, Delivered, 07 Aug
+160-64823942,KIX,SIN, Freight accepted at airport,CX035 08 Aug
+160-64823975,KIX,HKG, Delivered, 07 Aug
+160-64823356,KIX,HKG, Delivered, 06 Aug
+160-64823360,KIX,MEX, Freight accepted at airport,CX595 06 Aug
+160-64823371,KIX,HKG, Delivered, 05 Aug
+160-64823345,KIX,HKG, Delivered, 04 Aug
+160-64823334,KIX,HKG, Delivered, 04 Aug
+160-64816533,PVG,MNL, Manifest received,CX3259 06 Aug
+160-64815030,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64815074,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64815085,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64815026,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64815004,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64815015,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64814971,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64814993,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64814982,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64814956,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64814912,PVG,MIA, Freight accepted at airport,CX059 07 Aug
+160-64814960,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64814901,PVG,MIA, Freight accepted at airport,CX059 07 Aug
+160-64814890,PVG,MIA, Freight accepted at airport,CX059 07 Aug
+160-64814816,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64812694,TPE,HKG, Freight accepted at airport,CX443 06 Aug
+160-64814492,PVG,MIA, Freight accepted at airport,CX059 07 Aug
+160-64814691,PVG,MIA, Freight accepted at airport,CX059 07 Aug
+160-64808424,HKG,KIX, Airline Received,CX568 07 Aug
+160-64811272,SYD,HAN, Freight accepted at airport,CX100 07 Aug
+160-64808413,HKG,NRT, Manifest received,CX006 08 Aug
+160-64808402,HKG,BKK, Airline Received, 08 Aug
+160-64808380,HKG,MNL, Departed,CX907 08 Aug
+160-64808376,HKG,MNL, Departed,CX907 08 Aug
+160-64838222,PEK,HKG, Delivered, 07 Aug
+160-64838163,PEK,HKG, Delivered, 07 Aug
+160-64838244,PEK,HKG, Delivered, 07 Aug
+160-64838233,PEK,HKG, Delivered, 07 Aug
+160-64838152,PEK,HKG, Delivered, 07 Aug
+160-64838126,PEK,HKG, Delivered, 07 Aug
+160-64838130,PEK,TPE, Freight accepted at airport,CX335 06 Aug
+160-64838104,PEK,HKG, Delivered, 31 Jul
+160-64838115,PEK,HKG, Delivered, 31 Jul
+160-64838141,PEK,HKG, Delivered, 07 Aug
+160-64836424,SGN,HKG, Delivered, 08 Aug
+160-64836413,SGN,HKG, Delivered, 07 Aug
+160-64838093,PEK,HKG, Delivered, 31 Jul
+160-64836402,SGN,HKG, Delivered, 06 Aug
+160-64836435,SGN,HKG, Delivered, 30 Jul
+160-64836365,SGN,HKG, Freight accepted at airport,CX764 08 Aug
+160-64836376,SGN,HKG, Delivered, 31 Jul
+160-64836354,SGN,HKG, Delivered, 07 Aug
+160-64836343,SGN,HKG, Delivered, 06 Aug
+160-64836380,SGN,HKG, Delivered, 03 Aug
+160-64836306,SGN,HKG, Delivered, 24 Jul
+160-64836310,SGN,HKG, Delivered, 03 Aug
+160-64836284,SGN,HKG, Delivered, 31 Jul
+160-64836321,SGN,HKG, Delivered, 04 Aug
+160-64836332,SGN,HKG, Delivered, 05 Aug
+160-64836273,SGN,HKG, Delivered, 30 Jul
+160-64836214,SGN,HKG, Delivered, 31 Jul
+160-64836225,SGN,HKG, Delivered, 02 Aug
+160-64836203,SGN,HKG, Delivered, 30 Jul
+160-64836251,SGN,HKG, Delivered, 28 Jul
+160-64836111,SGN,HKG, Delivered, 18 Jul
+160-64836192,SGN,HKG, Delivered, 29 Jul
+160-64836144,SGN,HKG, Delivered, 24 Jul
+160-64836181,SGN,HKG, Freight accepted at airport,CX764 28 Jul
+160-64836170,SGN,HKG, Delivered, 27 Jul
+160-64833495,ORD,HKG, Delivered, 29 Jul
+160-64833226,NRT,HKG, Delivered, 02 Aug
+160-64835595,ADL,HKG, Freight on hand,CX2174 16 Jul
+160-64833241,NRT,HKG, Freight accepted at airport,CX005 07 Aug
+160-64833215,NRT,HKG, Delivered, 30 Jul
+160-64833204,NRT,HKG, Delivered, 28 Jul
+160-64830931,ATL,PEK, Freight accepted at airport,CX2091 07 Aug
+160-64833193,NRT,HKG, Delivered, 21 Jul
+160-64832994,MTY,PVG, Freight accepted at airport,CX087 06 Aug
+160-64830942,ATL,PVG, Freight accepted at airport,CX2091 07 Aug
+160-64830916,ATL,PVG, Freight accepted at airport,CX2091 07 Aug
+160-64830920,ATL,CTU, Freight accepted at airport,CX2091 07 Aug
+160-64825946,WUH,LHR, Delivered, 05 Aug
+160-64828971,CDG,HKG, Delivered, 24 Jul
+160-64828875,MXP,HKG, Delivered, 03 Aug
+160-64823942,KIX,SIN, Freight accepted at airport,CX035 08 Aug
+160-64825924,WUH,LHR, Delivered, 05 Aug
+160-64825935,WUH,LHR, Delivered, 05 Aug
+160-64823975,KIX,HKG, Delivered, 07 Aug
+160-64825902,WUH,LHR, Delivered, 05 Aug
+160-64823356,KIX,HKG, Delivered, 06 Aug
+160-64823371,KIX,HKG, Delivered, 05 Aug
+160-64823345,KIX,HKG, Delivered, 04 Aug
+160-64823360,KIX,MEX, Freight accepted at airport,CX595 06 Aug
+160-64823393,KIX,HKG, Delivered, 07 Aug
+160-64815074,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64823334,KIX,HKG, Delivered, 04 Aug
+160-64816533,PVG,MNL, Manifest received,CX3259 06 Aug
+160-64815030,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64815085,PVG,MIA, Freight accepted at airport,CX367 07 Aug
+160-64815026,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64815004,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64814982,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64815015,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64814993,PVG,DFW, Freight accepted at airport,CX059 07 Aug
+160-64876652,HKG,PVG, Freight on hand,CX368 06 Aug
+160-64879566,HKG,MNL, Delivered, 26 Jul
+160-64879570,HKG,SFO,,
+160-64876663,HKG,JFK,,
+160-64879592,HKG,JFK,,
+160-64876630,HKG,PVG, Freight on hand,CX368 06 Aug
+160-64876490,HKG,CMB, Delivered, 19 Jul
+160-64876593,HKG,LHR, Delivered, 03 Aug
+160-64876641,HKG,PVG, Freight on hand,CX368 06 Aug
+160-64876560,HKG,KIX, Delivered, 21 Jul
+160-64876361,HKG,NRT, Airline Received, 08 Aug
+160-64876055,HKG,KIX, Delivered, 05 Aug
+160-64876022,HKG,ICN,,
+160-64875860,HKG,ICN,,
+160-64876011,HKG,KIX,,
+160-64875182,HKG,JFK, Airline Received,CX098 06 Aug
+160-64875230,HKG,MEL, Airline Received, 07 Aug
+160-64875263,HKG,MNL, Departed,CX907 08 Aug
+160-64875252,HKG,KIX, Airline Received, 07 Aug
+160-64875241,HKG,PEK,,
+160-64875171,HKG,TPE,,
+160-64875160,HKG,AKL,,
+160-64875145,HKG,KIX, Delivered, 30 Jul
+160-64875134,HKG,KIX, Delivered, 25 Jul
+160-64875156,HKG,LHR,,
+160-64875075,HKG,TPE, Delivered, 24 Jul
+160-64875020,HKG,LHR, Delivered, 03 Aug
+160-64875112,HKG,LAX, Delivered, 01 Aug
+160-64875086,HKG,KIX, Delivered, 23 Jul
+160-64874913,HKG,CGK,,
+160-64874320,HKG,TPE, Delivered, 25 Jul
+160-64874445,CMB,HKG, Manifest received,CX018 06 Aug
+160-64874401,CMB,HKG, Freight on hand,CX018 29 Jul
+160-64874423,CMB,HKG, Manifest received,CX018 06 Aug
+160-64874390,HKG,TPE, Delivered, 01 Aug
+160-64874316,HKG,TPE, Delivered, 24 Jul
+160-64869836,HKG,TPE, Airline Received, 08 Aug
+160-64874305,HKG,TPE, Delivered, 21 Jul
+160-64871251,PNH,JFK, Freight accepted at airport,CX3296 07 Aug
+160-64871225,PNH,SIN, Freight accepted at airport,CX600 08 Aug
+160-64869766,HKG,TPE, Delivered, 01 Aug
+160-64869781,HKG,TPE, Delivered, 03 Aug
+160-64869696,HKG,TPE, Delivered, 31 Jul
+160-64869770,HKG,TPE, Delivered, 02 Aug
+160-64866793,CDG,HKG, Delivered, 31 Jul
+160-64866664,CGK,HKG, Delivered, 02 Aug
+160-64866675,CGK,HKG, Freight on hand,CX3246 29 Jul
+160-64866686,CMB,HKG, Manifest received,CX018 06 Aug
+160-64866620,CGK,HKG, Freight on hand,CX3246 30 Jul
+160-64866616,CGK,HKG, Delivered, 03 Aug
+160-64866001,TLV,PVG, Freight accepted at airport,CX676 08 Aug
+160-64865824,TLV,HKG, Delivered, 01 Aug
+160-64865555,TLV,HKG, Delivered, 18 Jul
+160-64866012,TLV,SIN, Freight accepted at airport,CX676 08 Aug
+160-64865990,TLV,TPE, Freight accepted at airport,CX676 08 Aug
+160-64860552,PEK,NRT, Freight accepted at airport,CX391 07 Aug
+160-64864730,FUK,HKG, Delivered, 06 Aug
+160-64860390,PEK,BOM, Freight accepted at airport,CX391 07 Aug
+160-64860316,PEK,ATL, Freight accepted at airport,LD765 07 Aug
+160-64860235,PEK,MAA, Freight accepted at airport,CX335 07 Aug
+160-64838233,PEK,HKG, Delivered, 07 Aug
+160-64838244,PEK,HKG, Delivered, 07 Aug
+160-64838222,PEK,HKG, Delivered, 07 Aug
+160-64858205,PEK,HKG, Delivered, 30 Jul
+160-64858124,PEK,JFK, Freight accepted at airport,CX391 07 Aug
+160-64838141,PEK,HKG, Delivered, 07 Aug
+160-64838163,PEK,HKG, Delivered, 07 Aug
+160-64838152,PEK,HKG, Delivered, 07 Aug
+160-64838130,PEK,TPE, Freight accepted at airport,CX335 06 Aug
+160-64838126,PEK,HKG, Delivered, 07 Aug
+160-64836435,SGN,HKG, Delivered, 30 Jul
+160-64838093,PEK,HKG, Delivered, 31 Jul
+160-64836424,SGN,HKG, Delivered, 08 Aug
+160-64838104,PEK,HKG, Delivered, 31 Jul
+160-64838115,PEK,HKG, Delivered, 31 Jul
+160-64836365,SGN,HKG, Freight accepted at airport,CX764 08 Aug
+160-64836413,SGN,HKG, Delivered, 07 Aug
+160-64836376,SGN,HKG, Delivered, 31 Jul
+160-64836402,SGN,HKG, Delivered, 06 Aug
+160-64836380,SGN,HKG, Delivered, 03 Aug
+160-64919536,ORD,HKG, Delivered, 02 Aug
+160-64919433,ORD,HKG, Delivered, 22 Jul
+160-64919525,ORD,HKG, Delivered, 04 Aug
+160-64919470,ORD,HKG, Delivered, 28 Jul
+160-64919492,ORD,HKG, Delivered, 02 Aug
+160-64918350,HKG,BKK, Airline Received, 08 Aug
+160-64918685,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64918604,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64919422,ORD,HKG, Delivered, 24 Jul
+160-64918593,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917915,HKG,PNH, Delivered, 04 Aug
+160-64918324,HKG,DAC, Delivered, 07 Aug
+160-64917926,HKG,PNH, Delivered, 03 Aug
+160-64917985,HKG,HAN, Airline Received, 08 Aug
+160-64917963,HKG,PNH,,
+160-64917823,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917812,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917860,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917871,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917904,HKG,PNH, Delivered, 02 Aug
+160-64917720,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917790,HKG,DAC, Delivered, 07 Aug
+160-64917764,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917731,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917742,HKG,DAC, Delivered, 07 Aug
+160-64917613,HKG,DAC, Delivered, 07 Aug
+160-64917716,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917650,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917661,HKG,DAC, Delivered, 07 Aug
+160-64917624,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917591,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64917333,HKG,DAC, Delivered, 02 Aug
+160-64917322,HKG,DAC, Delivered, 05 Aug
+160-64917576,HKG,DAC, Delivered, 05 Aug
+160-64917580,HKG,DAC, Delivered, 05 Aug
+160-64917296,HKG,DAC, Delivered, 05 Aug
+160-64917300,HKG,DAC, Delivered, 05 Aug
+160-64917263,HKG,DAC, Delivered, 02 Aug
+160-64917241,HKG,CMB, Delivered, 02 Aug
+160-64917311,HKG,DAC, Delivered, 05 Aug
+160-64937471,KIX,HKG, Delivered, 04 Aug
+160-64928511,SYD,HKG, Delivered, 23 Jul
+160-64937460,KIX,HKG, Delivered, 04 Aug
+160-64919433,ORD,HKG, Delivered, 22 Jul
+160-64919492,ORD,HKG, Delivered, 02 Aug
+160-64919470,ORD,HKG, Delivered, 28 Jul
+160-64919422,ORD,HKG, Delivered, 24 Jul
+160-64919525,ORD,HKG, Delivered, 04 Aug
+160-64918604,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64918350,HKG,BKK, Airline Received, 08 Aug
+160-64918593,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64918685,HKG,CGK, Manifest received,CX3249 08 Aug
+160-64918324,HKG,DAC, Delivered, 07 Aug
+160-64944460,TPE,LHR, Freight accepted at airport,CX005 07 Aug
+160-64944401,TPE,NTE, Freight accepted at airport,CX005 07 Aug
+160-64944423,TPE,LHR, Freight accepted at airport,CX005 07 Aug
+160-64944600,TPE,TLV, Freight accepted at airport,CX495 07 Aug
+160-64944386,TPE,BRU, Freight accepted at airport,CX005 07 Aug
+160-64944305,TPE,LAX, Freight accepted at airport,CX443 07 Aug
+160-64944342,TPE,LAX, Freight accepted at airport,CX443 07 Aug
+160-64944272,TPE,CDG, Freight accepted at airport,CX005 07 Aug
+160-64944283,TPE,AMS, Freight accepted at airport,CX005 07 Aug
+160-64944364,TPE,LIL, Freight accepted at airport,CX005 07 Aug
+160-64944110,TPE,MXP, Freight accepted at airport,CX495 07 Aug
+160-64944261,TPE,FRA, Freight accepted at airport,CX005 07 Aug
+160-64944143,TPE,AMS, Freight accepted at airport,CX005 07 Aug
+160-64956953,MNL,HKG, Delivered, 04 Aug
+160-64957034,MNL,HKG, Delivered, 19 Jul
+160-64956920,MNL,HKG, Delivered, 26 Jul
+160-64957001,MNL,HKG, Delivered, 17 Jul
+160-64957023,MNL,PVG, Freight accepted at airport,CX906 07 Aug
+160-64956743,MNL,HKG, Delivered, 02 Aug
+160-64956824,MNL,HKG, Delivered, 31 Jul
+160-64956905,MNL,HKG, Delivered, 23 Jul
+160-64956894,MNL,HKG, Delivered, 21 Jul
+160-64956872,MNL,HKG, Delivered, 21 Jul
+160-64956592,MNL,HKG, Delivered, 07 Aug
+160-64956732,MNL,HKG, Delivered, 01 Aug
+160-64956581,MNL,HKG, Delivered, 06 Aug
+160-64956570,MNL,HKG, Delivered, 02 Aug
+160-64956710,MNL,HKG, Delivered, 29 Jul
+160-64944460,TPE,LHR, Freight accepted at airport,CX005 07 Aug
+160-64944600,TPE,TLV, Freight accepted at airport,CX495 07 Aug
+160-64944386,TPE,BRU, Freight accepted at airport,CX005 07 Aug
+160-64944401,TPE,NTE, Freight accepted at airport,CX005 07 Aug
+160-64944423,TPE,LHR, Freight accepted at airport,CX005 07 Aug
