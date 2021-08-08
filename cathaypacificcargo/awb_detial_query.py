@@ -1,18 +1,139 @@
 import asyncio
 import os
+import sys
+import traceback
 from pyppeteer import launch
+import signal
+import psutil
+import awb_interesting_generator
+import paramiko
 
-async def getTextFromFrame(frame, selector):
+async def getTextFromFrame(page, selector, timeout=30000):
     try:
         ##time.sleep(2)
-        await frame.waitForSelector(selector)
-        element = await frame.querySelector(selector)
-        text = await frame.evaluate('(element) => element.textContent', element)
+        await page.waitForSelector(selector, { "timeout": timeout })
+        element = await page.querySelector(selector)
+        text = await page.evaluate('(element) => element.textContent', element)
         return text
     except:
         return ""
 
-async def main() : 
+def printError(e):
+    error_class = e.__class__.__name__ #取得錯誤類型
+    detail = e.args[0] #取得詳細內容
+    cl, exc, tb = sys.exc_info() #取得Call Stack
+    lastCallStack = traceback.extract_tb(tb)[-1] #取得Call Stack的最後一筆資料
+    fileName = lastCallStack[0] #取得發生的檔案名稱
+    lineNum = lastCallStack[1] #取得發生的行號
+    funcName = lastCallStack[2] #取得發生的函數名稱
+    errMsg = "File \"{}\", line {}, in {}: [{}] {}".format(fileName, lineNum, funcName, error_class, detail)
+    print(errMsg)
+
+def printMsg(number, msg):
+    print(f"[{number}] {msg}")
+
+async def get_awb_detail_tasks(number):
+    try:  
+        #userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36';
+        headless = True # True: 沒有瀏覽器
+        options = {
+            "args": [
+                #'--disable-gpu',
+                #'--disable-dev-shm-usage',
+                ##'--disable-setuid-sandbox',
+                #'--no-first-run',
+                #'--no-zygote',
+                #'--deterministic-fetch',
+                #'--disable-features=IsolateOrigins',
+                #'--disable-site-isolation-trials',
+                '--no-sandbox',
+                f'--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"'
+            ],
+            "headless": headless,
+            "executablePath" :  chromiumPath
+        }
+        browser = await launch(options) #'executablePath': exepath,, 'slowMo': 30
+        page = await browser.newPage()
+        #await page.setUserAgent(userAgent)
+        await page.setExtraHTTPHeaders({
+            'authority' :'www.cathaypacificcargo.com',
+            'path': '/en-us/manageyourshipment/trackyourshipment.aspx',
+            'upgrade-insecure-requests': '1',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+            'accept-encoding': 'gzip, deflate, br',
+            'accept-language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6,ko;q=0.5'
+        })
+
+        #await page.setViewport({'width': 0, 'height': 0})
+        printMsg(number, "get awb detial begin.")
+        await page.goto(f"https://www.cathaypacificcargo.com/ManageYourShipment/TrackYourShipment/tabid/108/SingleAWBNo/{number}/language/en-US/Default.aspx", 
+            { 
+                "waitUntil" : "load",
+                "timeout": 0 
+            })                               
+        #html = await page.content()
+
+        origin = await getTextFromFrame(page, "#FreightStatus-Origin")
+        print(f"origin={origin}")
+        destination = await getTextFromFrame(page, "#FreightStatus-Destination")
+        print(f"destination={destination}")
+
+        status = ""
+        flight = ""
+        if origin and destination: 
+            status = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(2)", 5000)
+            status = status.replace(",", " ")
+            print(f"status={status}")
+            flight = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(5)", 5000)
+            print(f"flight={flight}")
+            printMsg(number, f"{origin} -> {destination} , {status} {flight}")
+
+        async with locker:
+            with open(interesting_detial_result_file, "a") as f: 
+                f.write(f"{number},{origin},{destination},{status},{flight}\n")
+        
+        printMsg(number, "get awb detial done.")
+    except Exception as e:
+        printError(e)
+    finally:
+        #await resultPage.close()
+        ##await page.close()
+        await browser.close()
+
+async def run_batch_task(loop, batch_numbers):
+    task_list =[]
+    for number in batch_numbers:
+        t = loop.create_task(get_awb_detail_tasks(number))
+        task_list.append(t)
+    
+    await asyncio.wait(task_list)
+
+
+def killall_chrome():
+    for proc in psutil.process_iter():
+        if os.name == 'nt':
+            PROCNAME = "chrome.exe"
+        else:
+            PROCNAME = "chromium-browse"
+        # check whether the process name matches
+        if proc.name() == PROCNAME:
+            proc.kill()
+
+def signal_handler(signum, frame):
+    print('signal_handler: caught signal ' + str(signum))
+    if signum == signal.SIGINT.value:
+        print('SIGINT')
+        loop.close()
+        killall_chrome()
+        sys.exit(1)
+
+if __name__ == '__main__': 
+
+    global chromiumPath
+    global interesting_detial_result_file
+    global interesting_awb_file
+    global locker
+    global loop
 
     if os.name == 'nt':
         chromiumPath = "C:/Users/Jimmy Wu/AppData/Local/pyppeteer/pyppeteer/local-chromium/588429/chrome-win32/chrome.exe"
@@ -20,27 +141,33 @@ async def main() :
         chromiumPath = "/usr/bin/chromium-browser"
     print(f"chromiumPath={chromiumPath}")
 
-    userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36';
-    headless = True # True: 沒有瀏覽器
-    options = {
-        "args": [
-            '--no-sandbox',
-            f'--user-agent="{userAgent}"'
-        ],
-        "headless": headless,
-        "executablePath" :  chromiumPath
-    }
+    awb_interesting_generator.main()
 
     interesting_detial_result_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_detial_result.csv")
     with open(interesting_detial_result_file, "r") as f: 
-        already_query_numbers = f.readlines()
+        lines = f.readlines()
+        print(f"interesting_detial_result.csv have { len(lines) } lines.")
+        already_query_numbers = list( dict.fromkeys(lines) )
+        print(f"interesting_detial_result.csv remove duplicates have { len(already_query_numbers) } lines.")
 
     interesting_awb_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_list.txt")
     with open(interesting_awb_file, 'r') as f:
-        numbers = f.readlines()
-        numbers.reverse()
+        lines = f.readlines()
+        print(f"interesting_awb_list.txt have { len(lines) } lines.")
+        interesting_awb_numbers = list( dict.fromkeys(lines) )
+        print(f"interesting_awb_list.txt remove duplicates have { len(interesting_awb_numbers) } lines.")
+        interesting_awb_numbers.reverse()
 
-    for number in numbers:
+    signal.signal(signal.SIGINT, signal_handler)
+    print(signal.SIGINT)
+
+    batch_numbers= []
+    locker = asyncio.Lock()
+    #loop = asyncio.new_event_loop()
+    #asyncio.set_event_loop(loop)
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    for number in interesting_awb_numbers:
         number = number.replace("\n", "")
         if not number :
             continue
@@ -48,51 +175,14 @@ async def main() :
         if number in already_query_numbers:
             continue
         
-        print(f"number={number}")
+        batch_numbers.append(number)
+        #print(f"number={number}")
         
-        try:  
-            browser = await launch(options) #'executablePath': exepath,, 'slowMo': 30
-            page = await browser.newPage()
-            await page.setUserAgent(userAgent)
-            await page.setExtraHTTPHeaders({
-                'authority' :'www.cathaypacificcargo.com',
-                'path': '/en-us/manageyourshipment/trackyourshipment.aspx',
-                'upgrade-insecure-requests': '1',
-                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-                'accept-encoding': 'gzip, deflate, br',
-                'accept-language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6,ko;q=0.5'
-            })
-
-            await page.setViewport({'width': 0, 'height': 0})
-
-            await page.goto(f"https://www.cathaypacificcargo.com/ManageYourShipment/TrackYourShipment/tabid/108/SingleAWBNo/{number}/language/en-US/Default.aspx", { "waitUntil" : "domcontentloaded" })
-                                         
-            html = await page.content()
-
-            origin = await getTextFromFrame(page, "#FreightStatus-Origin")
-            print(f"origin={origin}")
-            destination = await getTextFromFrame(page, "#FreightStatus-Destination")
-            print(f"destination={destination}")
-
-            if origin and destination: 
-                status = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(2)")
-                status = status.replace(",", " ")
-                print(f"status={status}")
-                flight = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(5)")
-                print(f"flight={flight}")
-                print(f"{origin} -> {destination} , {status} {flight}")
-                with open(interesting_detial_result_file, "a") as f: 
-                    f.write(f"{number},{origin},{destination},{status},{flight}\n")
-            else:
-                with open(interesting_detial_result_file, "a") as f: 
-                    f.write(f"{number},,,,\n")
-            
-        except Exception as e:
-            print(e)
-        finally:
-            #await resultPage.close()
-            ##await page.close()
-            await browser.close()
-           
-asyncio.get_event_loop().run_until_complete(main())
+        if len(batch_numbers) == 5:
+            loop.run_until_complete(run_batch_task(loop, batch_numbers))
+            killall_chrome()
+            batch_numbers.clear()
+        
+    loop.close()          
+#asyncio.get_event_loop().run_until_complete(main())
 
