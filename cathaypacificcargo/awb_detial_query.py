@@ -134,7 +134,7 @@ if __name__ == '__main__':
     #awb_interesting_generator.main()
 
     already_query_numbers = []
-    interesting_detial_result_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_detial_result.csv")
+    interesting_detial_result_file = "/home/pi/awb_crawler/cathaypacificcargo/data/interesting_detial_result.csv"
     with open(interesting_detial_result_file, "r") as f: 
        for row in f:
            number = row.split(",")[0] 
@@ -143,7 +143,7 @@ if __name__ == '__main__':
     print(f"interesting_detial_result.csv have { len(already_query_numbers) } lines.")
 
     interesting_awb_numbers = []
-    interesting_awb_file = os.path.join(os.getcwd(), "cathaypacificcargo/data/interesting_awb_list.txt")
+    interesting_awb_file = "/home/pi/awb_crawler/cathaypacificcargo/data/interesting_awb_list.txt"
     with open(interesting_awb_file, 'r') as f:
        for row in f:
            number = row.strip()
