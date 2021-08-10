@@ -25,7 +25,10 @@ if __name__ == '__main__':
         }
     """ )
 
-workerFolder = pathlib.Path().resolve()
+if os.name == 'nt':
+    workerFolder = pathlib.Path().resolve()
+else:
+    workerFolder = "/home/pi/awb_crawler"
 print(f"workerFolder={workerFolder}" )
 
 start_number = 6022000
