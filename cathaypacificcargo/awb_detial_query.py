@@ -4,9 +4,11 @@ import sys
 import traceback
 from pyppeteer import launch
 import signal
-import awb_interesting_generator
 import kill_chrome
 import pathlib
+from datetime import datetime
+import common
+import awb_interesting_generator
 
 async def getTextFromFrame(page, selector, timeout=30000):
     try:
@@ -27,10 +29,10 @@ def printError(e):
     lineNum = lastCallStack[1] #取得發生的行號
     funcName = lastCallStack[2] #取得發生的函數名稱
     errMsg = "File \"{}\", line {}, in {}: [{}] {}".format(fileName, lineNum, funcName, error_class, detail)
-    print(errMsg)
+    logger.error(errMsg)
 
 def printMsg(number, msg):
-    print(f"[{number}] {msg}")
+    logger.info(f"[{number}] {msg}")
 
 async def get_awb_detail_tasks(number):
     try:  
@@ -50,7 +52,7 @@ async def get_awb_detail_tasks(number):
                 f'--user-agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"'
             ],
             "headless": headless,
-            "executablePath" :  chromiumPath
+            "executablePath" :  chromium_path
         }
         browser = await launch(options) #'executablePath': exepath,, 'slowMo': 30
         page = await browser.newPage()
@@ -65,7 +67,7 @@ async def get_awb_detail_tasks(number):
         })
 
         #await page.setViewport({'width': 0, 'height': 0})
-        printMsg(number, "get awb detial begin.")
+        printMsg(number, "Go to page for get detial.")
         await page.goto(f"https://www.cathaypacificcargo.com/ManageYourShipment/TrackYourShipment/tabid/108/SingleAWBNo/{number}/language/en-US/Default.aspx", 
             { 
                 "waitUntil" : "load",
@@ -74,22 +76,22 @@ async def get_awb_detail_tasks(number):
         #html = await page.content()
 
         origin = await getTextFromFrame(page, "#FreightStatus-Origin")
-        print(f"origin={origin}")
+        logger.info(f"origin={origin}")
         destination = await getTextFromFrame(page, "#FreightStatus-Destination")
-        print(f"destination={destination}")
+        logger.info(f"destination={destination}")
 
         status = ""
         flight = ""
         if origin and destination: 
             status = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(2)", 5000)
             status = status.replace(",", " ")
-            print(f"status={status}")
+            logger.info(f"status={status}")
             flight = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(5)", 5000)
-            print(f"flight={flight}")
+            logger.info(f"flight={flight}")
             printMsg(number, f"{origin} -> {destination} , {status} {flight}")
 
         async with locker:
-            with open(interesting_detial_result_file, "a") as f: 
+            with open(interesting_detial_result_path, "a") as f: 
                 f.write(f"{number},{origin},{destination},{status},{flight}\n")
         
         printMsg(number, "get awb detial done.")
@@ -119,48 +121,52 @@ def signal_handler(signum, frame):
 
 if __name__ == '__main__': 
 
-    global chromiumPath
-    global interesting_detial_result_file
-    global interesting_awb_file
+    global chromium_path
+    global interesting_detial_result_path
+    global interesting_awb_path
     global locker
     global loop
+    global logger
 
     if os.name == 'nt':
-        chromiumPath = "C:/Users/Jimmy Wu/AppData/Local/pyppeteer/pyppeteer/local-chromium/588429/chrome-win32/chrome.exe"
+        chromium_path = "C:/Users/Jimmy Wu/AppData/Local/pyppeteer/pyppeteer/local-chromium/588429/chrome-win32/chrome.exe"
     else:
-        chromiumPath = "/usr/bin/chromium-browser"
-    print(f"chromiumPath={chromiumPath}")
+        chromium_path = "/usr/bin/chromium-browser"
 
-    if os.name == 'nt':
-        workerFolder = pathlib.Path().resolve()
-    else:
-        workerFolder = "/home/pi/awb_crawler"
-    print(f"workerFolder={workerFolder}" )
+    worker_folder = pathlib.Path(__file__).parent.resolve()
+    data_folder = os.path.join(worker_folder, 'data')
 
+    logger = common.init_logger(worker_folder, "awb_detial_query")
     #awb_interesting_generator.main()
+    logger.info(f"chromium_path={chromium_path}")
+    logger.info(f"worker_folder={worker_folder}" )
+    logger.info(f"data_folder={worker_folder}" )
+    logger.info(f"log_folder={worker_folder}" )
+
 
     already_query_numbers = []
-    interesting_detial_result_file =  os.path.join(workerFolder, f"cathaypacificcargo/data/interesting_detial_result.csv")
-    with open(interesting_detial_result_file, "r") as f: 
+    interesting_detial_result_path =  os.path.join(data_folder, "interesting_detial_result.csv")
+    with open(interesting_detial_result_path, "r") as f: 
        for row in f:
            number = row.split(",")[0] 
            if number not in already_query_numbers:
                 already_query_numbers.append(number)
-    print(f"interesting_detial_result.csv have { len(already_query_numbers) } lines.")
+    logger.info(f"interesting_detial_result.csv have { len(already_query_numbers) } lines.")
 
     interesting_awb_numbers = []
-    interesting_awb_file =  os.path.join(workerFolder, f"cathaypacificcargo/data/interesting_awb_list.txt")
-    with open(interesting_awb_file, 'r') as f:
+    interesting_awb_path =  os.path.join(data_folder, "interesting_awb_list.txt")
+    with open(interesting_awb_path, 'r') as f:
        for row in f:
            number = row.strip()
            if number not in interesting_awb_numbers:
                 interesting_awb_numbers.append(number)
-    print(f"interesting_awb_list.txt have { len(interesting_awb_numbers) } lines.")
+    logger.info(f"interesting_awb_list.txt have { len(interesting_awb_numbers) } lines.")
     interesting_awb_numbers.reverse()
 
     signal.signal(signal.SIGINT, signal_handler)
     #print(signal.SIGINT)
 
+    max_tasks = 20
     batch_numbers= []
     locker = asyncio.Lock()
     #loop = asyncio.new_event_loop()
@@ -173,17 +179,17 @@ if __name__ == '__main__':
             continue
 
         if number in already_query_numbers:
-            print(f"AWB {number} already get detial.")
+            logger.info(f"AWB {number} already get detial.")
             continue
         
         batch_numbers.append(number)
         #print(f"number={number}")
         
-        if len(batch_numbers) == 10:
+        if len(batch_numbers) == max_tasks:
             ssss = ",".join(batch_numbers)
-            print(f"=====> {ssss} batch task start")
+            logger.debug(f"=====> {ssss} batch task start")
             loop.run_until_complete(run_batch_task(loop, batch_numbers))
-            print(f"=====> {ssss} batch task all done")
+            logger.debug(f"=====> {ssss} batch task all done")
             kill_chrome.main()
             batch_numbers.clear()
         
