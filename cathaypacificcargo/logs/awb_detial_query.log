@@ -1,0 +1,137 @@
+2021-08-11 10:23:48,294 - [INFO] - worker_folder=F:\weilen_wu\awb_crawler\cathaypacificcargo
+2021-08-11 10:23:48,295 - [INFO] - data_folder=F:\weilen_wu\awb_crawler\cathaypacificcargo
+2021-08-11 10:23:48,295 - [INFO] - log_folder=F:\weilen_wu\awb_crawler\cathaypacificcargo
+2021-08-11 10:23:51,788 - [INFO] - interesting_detial_result.csv have 9545 lines.
+2021-08-11 10:23:59,874 - [INFO] - interesting_awb_list.txt have 30876 lines.
+2021-08-11 10:24:02,958 - [INFO] - AWB 160-62999996 already get detial.
+2021-08-11 10:24:12,035 - [INFO] - AWB 160-62999985 already get detial.
+2021-08-11 10:24:13,345 - [INFO] - AWB 160-62999963 already get detial.
+2021-08-11 10:24:14,641 - [INFO] - AWB 160-62999952 already get detial.
+2021-08-11 10:24:17,070 - [INFO] - AWB 160-62999930 already get detial.
+2021-08-11 10:24:17,913 - [INFO] - AWB 160-62999926 already get detial.
+2021-08-11 10:24:18,224 - [INFO] - AWB 160-62999915 already get detial.
+2021-08-11 10:24:23,306 - [INFO] - AWB 160-62999904 already get detial.
+2021-08-11 10:24:25,456 - [INFO] - AWB 160-62999893 already get detial.
+2021-08-11 10:24:25,457 - [INFO] - AWB 160-62999882 already get detial.
+2021-08-11 10:24:25,457 - [INFO] - AWB 160-62999871 already get detial.
+2021-08-11 10:24:25,458 - [INFO] - AWB 160-62999834 already get detial.
+2021-08-11 10:24:25,458 - [INFO] - AWB 160-62999823 already get detial.
+2021-08-11 10:24:25,458 - [INFO] - AWB 160-62999801 already get detial.
+2021-08-11 10:24:25,459 - [INFO] - AWB 160-62999790 already get detial.
+2021-08-11 10:24:25,459 - [INFO] - AWB 160-62999786 already get detial.
+2021-08-11 10:24:25,459 - [INFO] - AWB 160-62999775 already get detial.
+2021-08-11 10:24:25,460 - [INFO] - AWB 160-62999764 already get detial.
+2021-08-11 10:24:25,460 - [INFO] - AWB 160-62999753 already get detial.
+2021-08-11 10:24:25,460 - [INFO] - AWB 160-62999731 already get detial.
+2021-08-11 10:24:25,461 - [INFO] - AWB 160-62999716 already get detial.
+2021-08-11 10:24:25,461 - [INFO] - AWB 160-62999602 already get detial.
+2021-08-11 10:24:25,462 - [INFO] - AWB 160-62999591 already get detial.
+2021-08-11 10:24:25,462 - [INFO] - AWB 160-62999580 already get detial.
+2021-08-11 10:24:25,462 - [INFO] - AWB 160-62999510 already get detial.
+2021-08-11 10:24:25,463 - [INFO] - AWB 160-62999495 already get detial.
+2021-08-11 10:24:25,463 - [INFO] - AWB 160-62999484 already get detial.
+2021-08-11 10:24:25,464 - [INFO] - AWB 160-62999462 already get detial.
+2021-08-11 10:24:25,464 - [INFO] - AWB 160-62999451 already get detial.
+2021-08-11 10:24:25,464 - [INFO] - AWB 160-62999436 already get detial.
+2021-08-11 10:24:25,464 - [INFO] - AWB 160-62999425 already get detial.
+2021-08-11 10:24:25,465 - [INFO] - AWB 160-62999392 already get detial.
+2021-08-11 10:24:25,466 - [INFO] - =====> batch task start
+2021-08-11 10:28:32,294 - [INFO] - worker_folder=F:\weilen_wu\awb_crawler\cathaypacificcargo
+2021-08-11 10:28:32,295 - [INFO] - data_folder=F:\weilen_wu\awb_crawler\cathaypacificcargo
+2021-08-11 10:28:32,296 - [INFO] - log_folder=F:\weilen_wu\awb_crawler\cathaypacificcargo
+2021-08-11 10:29:04,767 - [INFO] - interesting_detial_result.csv have 9545 lines.
+2021-08-11 10:29:09,278 - [INFO] - interesting_awb_list.txt have 30876 lines.
+2021-08-11 10:29:09,281 - [INFO] - AWB 160-62999996 already get detial.
+2021-08-11 10:29:09,282 - [INFO] - AWB 160-62999985 already get detial.
+2021-08-11 10:29:09,282 - [INFO] - AWB 160-62999963 already get detial.
+2021-08-11 10:29:09,282 - [INFO] - AWB 160-62999952 already get detial.
+2021-08-11 10:29:09,283 - [INFO] - AWB 160-62999930 already get detial.
+2021-08-11 10:29:09,283 - [INFO] - AWB 160-62999926 already get detial.
+2021-08-11 10:29:09,284 - [INFO] - AWB 160-62999915 already get detial.
+2021-08-11 10:29:09,284 - [INFO] - AWB 160-62999904 already get detial.
+2021-08-11 10:29:09,285 - [INFO] - AWB 160-62999893 already get detial.
+2021-08-11 10:29:09,285 - [INFO] - AWB 160-62999882 already get detial.
+2021-08-11 10:29:09,286 - [INFO] - AWB 160-62999871 already get detial.
+2021-08-11 10:29:09,286 - [INFO] - AWB 160-62999834 already get detial.
+2021-08-11 10:29:09,287 - [INFO] - AWB 160-62999823 already get detial.
+2021-08-11 10:29:09,287 - [INFO] - AWB 160-62999801 already get detial.
+2021-08-11 10:29:09,287 - [INFO] - AWB 160-62999790 already get detial.
+2021-08-11 10:29:09,288 - [INFO] - AWB 160-62999786 already get detial.
+2021-08-11 10:29:09,288 - [INFO] - AWB 160-62999775 already get detial.
+2021-08-11 10:29:09,288 - [INFO] - AWB 160-62999764 already get detial.
+2021-08-11 10:29:09,289 - [INFO] - AWB 160-62999753 already get detial.
+2021-08-11 10:29:09,289 - [INFO] - AWB 160-62999731 already get detial.
+2021-08-11 10:29:09,290 - [INFO] - AWB 160-62999716 already get detial.
+2021-08-11 10:29:09,290 - [INFO] - AWB 160-62999602 already get detial.
+2021-08-11 10:29:09,290 - [INFO] - AWB 160-62999591 already get detial.
+2021-08-11 10:29:09,291 - [INFO] - AWB 160-62999580 already get detial.
+2021-08-11 10:29:09,291 - [INFO] - AWB 160-62999510 already get detial.
+2021-08-11 10:29:09,292 - [INFO] - AWB 160-62999495 already get detial.
+2021-08-11 10:29:09,292 - [INFO] - AWB 160-62999484 already get detial.
+2021-08-11 10:29:09,293 - [INFO] - AWB 160-62999462 already get detial.
+2021-08-11 10:29:09,293 - [INFO] - AWB 160-62999451 already get detial.
+2021-08-11 10:29:09,293 - [INFO] - AWB 160-62999436 already get detial.
+2021-08-11 10:29:09,294 - [INFO] - AWB 160-62999425 already get detial.
+2021-08-11 10:29:09,294 - [INFO] - AWB 160-62999392 already get detial.
+2021-08-11 10:29:09,295 - [INFO] - =====> batch task start
+2021-08-11 10:29:23,081 - [INFO] - [160-62999856] Task0 start.
+2021-08-11 10:29:30,177 - [INFO] - [160-62999646] Task1 start.
+2021-08-11 10:29:31,173 - [INFO] - [160-62999635] Task2 start.
+2021-08-11 10:29:32,001 - [INFO] - [160-62999532] Task3 start.
+2021-08-11 10:29:32,718 - [INFO] - [160-62999506] Task4 start.
+2021-08-11 10:29:33,951 - [INFO] - [160-62999473] Task5 start.
+2021-08-11 10:29:34,793 - [INFO] - [160-62999414] Task6 start.
+2021-08-11 10:29:41,393 - [INFO] - [160-62999381] Task7 start.
+2021-08-11 10:29:42,328 - [INFO] - [160-62999366] Task8 start.
+2021-08-11 10:29:43,060 - [INFO] - [160-62999355] Task9 start.
+2021-08-11 10:29:43,776 - [INFO] - [160-62999333] Task10 start.
+2021-08-11 10:29:44,474 - [INFO] - [160-62999322] Task11 start.
+2021-08-11 10:29:45,021 - [INFO] - [160-62999311] Task12 start.
+2021-08-11 10:29:45,549 - [INFO] - [160-62999300] Task13 start.
+2021-08-11 10:29:45,861 - [INFO] - [160-62999646] Go to page for get detial.
+2021-08-11 10:29:45,865 - [INFO] - [160-62999414] Go to page for get detial.
+2021-08-11 10:29:45,893 - [INFO] - [160-62999856] Go to page for get detial.
+2021-08-11 10:29:45,913 - [INFO] - [160-62999635] Go to page for get detial.
+2021-08-11 10:29:45,945 - [INFO] - [160-62999381] Go to page for get detial.
+2021-08-11 10:29:45,951 - [INFO] - [160-62999506] Go to page for get detial.
+2021-08-11 10:29:45,961 - [INFO] - [160-62999532] Go to page for get detial.
+2021-08-11 10:29:45,965 - [INFO] - [160-62999366] Go to page for get detial.
+2021-08-11 10:29:45,971 - [INFO] - [160-62999333] Go to page for get detial.
+2021-08-11 10:29:45,976 - [INFO] - [160-62999355] Go to page for get detial.
+2021-08-11 10:29:55,969 - [INFO] - [160-62999311] Go to page for get detial.
+2021-08-11 10:29:55,971 - [INFO] - [160-62999473] Go to page for get detial.
+2021-08-11 10:29:55,978 - [INFO] - [160-62999300] Go to page for get detial.
+2021-08-11 10:29:55,979 - [INFO] - [160-62999322] Go to page for get detial.
+2021-08-11 10:29:57,042 - [INFO] - origin=PER
+2021-08-11 10:29:57,061 - [INFO] - origin=PER
+2021-08-11 10:29:57,064 - [INFO] - origin=PER
+2021-08-11 10:29:57,067 - [INFO] - destination=HKG
+2021-08-11 10:29:57,077 - [INFO] - origin=PER
+2021-08-11 10:29:57,079 - [INFO] - origin=BKK
+2021-08-11 10:29:57,079 - [INFO] - origin=BKK
+2021-08-11 10:29:57,083 - [INFO] - origin=PER
+2021-08-11 10:29:57,089 - [INFO] - destination=HKG
+2021-08-11 10:29:57,091 - [INFO] - destination=HKG
+2021-08-11 10:29:57,096 - [INFO] - status= Delivered
+2021-08-11 10:29:57,104 - [INFO] - origin=PER
+2021-08-11 10:29:57,106 - [INFO] - destination=HKG
+2021-08-11 10:29:57,108 - [INFO] - destination=HKG
+2021-08-11 10:29:57,109 - [INFO] - destination=HKG
+2021-08-11 10:29:57,112 - [INFO] - destination=HKG
+2021-08-11 10:29:57,116 - [INFO] - origin=BKK
+2021-08-11 10:29:57,118 - [INFO] - status= Delivered
+2021-08-11 10:29:57,120 - [INFO] - status= Delivered
+2021-08-11 10:29:57,122 - [INFO] - origin=PER
+2021-08-11 10:29:57,125 - [INFO] - flight= 22 Jul
+2021-08-11 10:29:57,126 - [INFO] - [160-62999532] PER -> HKG ,  Delivered  22 Jul
+2021-08-11 10:29:57,126 - [INFO] - [160-62999532] close page
+2021-08-11 10:30:00,144 - [INFO] - [160-62999532] Task3) done. (use 1.46875 s)
+2021-08-11 10:30:01,861 - [INFO] - destination=HKG
+2021-08-11 10:30:04,078 - [INFO] - status= Delivered
+2021-08-11 10:30:04,081 - [INFO] - status= Manifest received
+2021-08-11 10:30:04,082 - [INFO] - status= Manifest received
+2021-08-11 10:30:04,086 - [INFO] - status= Delivered
+2021-08-11 10:30:04,092 - [INFO] - destination=HKG
+2021-08-11 10:30:04,095 - [INFO] - flight= 15 Jul
+2021-08-11 10:30:04,096 - [INFO] - [160-62999355] PER -> HKG ,  Delivered  15 Jul
+2021-08-11 10:30:04,096 - [INFO] - [160-62999355] close page
