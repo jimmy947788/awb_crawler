@@ -12903,3 +12903,68 @@
 2021-08-11 15:35:34,117 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
 2021-08-11 15:35:34,681 - [INFO] - [160-65068824] close page
 2021-08-11 15:35:35,318 - [INFO] - [160-65068824] Task22 done. (use 0.734375 s)
+2021-08-11 15:36:07,216 - [INFO] - [160-65069944] close browser
+2021-08-11 15:36:07,845 - [INFO] - origin=MNL
+2021-08-11 15:36:08,378 - [INFO] - destination=SGN
+2021-08-11 15:36:08,904 - [INFO] - status= Delivered
+2021-08-11 15:36:09,535 - [INFO] - flight= 10 Aug
+2021-08-11 15:36:10,129 - [INFO] - [160-65069944] MNL -> SGN ,  Delivered  10 Aug
+2021-08-11 15:36:10,791 - [INFO] - [160-65069944] close page
+2021-08-11 15:36:11,477 - [INFO] - [160-65069944] Task20 done. (use 1.546875 s)
+2021-08-11 15:36:31,342 - [INFO] - [160-65068813] close browser
+2021-08-11 15:36:32,324 - [INFO] - origin=MNL
+2021-08-11 15:36:33,304 - [INFO] - destination=HKG
+2021-08-11 15:36:34,396 - [INFO] - status= Delivered
+2021-08-11 15:36:35,338 - [INFO] - flight= 06 Aug
+2021-08-11 15:36:36,084 - [INFO] - [160-65068813] MNL -> HKG ,  Delivered  06 Aug
+2021-08-11 15:36:36,651 - [INFO] - [160-65068813] close page
+2021-08-11 15:36:37,312 - [INFO] - [160-65068813] Task23 done. (use 1.21875 s)
+2021-08-11 15:36:37,995 - [INFO] - [160-65096006] close browser
+2021-08-11 15:36:38,665 - [INFO] - origin=AKL
+2021-08-11 15:36:39,254 - [INFO] - destination=PVG
+2021-08-11 15:36:39,855 - [INFO] - status= Delivered
+2021-08-11 15:36:40,467 - [INFO] - flight= 09 Aug
+2021-08-11 15:36:41,034 - [INFO] - [160-65096006] AKL -> PVG ,  Delivered  09 Aug
+2021-08-11 15:36:41,773 - [INFO] - [160-65096006] close page
+2021-08-11 15:36:42,356 - [INFO] - [160-65096006] Task2 done. (use 4.28125 s)
+2021-08-11 15:36:43,024 - [INFO] - [160-65069981] close browser
+2021-08-11 15:36:43,637 - [INFO] - origin=MNL
+2021-08-11 15:36:44,211 - [INFO] - destination=PVG
+2021-08-11 15:36:44,784 - [INFO] - status= Delivered
+2021-08-11 15:36:45,458 - [INFO] - flight= 11 Aug
+2021-08-11 15:36:46,048 - [INFO] - [160-65069981] MNL -> PVG ,  Delivered  11 Aug
+2021-08-11 15:36:46,632 - [INFO] - [160-65069981] close page
+2021-08-11 15:36:47,208 - [INFO] - [160-65069981] Task19 done. (use 1.90625 s)
+2021-08-11 15:36:52,567 - [INFO] - [160-65096441] close browser
+2021-08-11 15:36:53,224 - [INFO] - origin=PVG
+2021-08-11 15:36:53,767 - [INFO] - destination=SIN
+2021-08-11 15:36:54,393 - [INFO] - status= Delivered
+2021-08-11 15:36:55,007 - [INFO] - flight= 10 Aug
+2021-08-11 15:36:55,624 - [INFO] - [160-65096441] PVG -> SIN ,  Delivered  10 Aug
+2021-08-11 15:36:56,204 - [INFO] - [160-65096441] close page
+2021-08-11 15:36:56,838 - [INFO] - [160-65096441] Task0 done. (use 4.765625 s)
+2021-08-11 15:37:04,662 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
+2021-08-11 15:37:05,295 - [INFO] - [160-65081321] close page
+2021-08-11 15:37:05,915 - [INFO] - [160-65081321] Task16 done. (use 2.796875 s)
+2021-08-11 15:37:13,110 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
+2021-08-11 15:37:13,699 - [INFO] - [160-65081376] close page
+2021-08-11 15:37:14,350 - [INFO] - [160-65081376] Task11 done. (use 3.515625 s)
+2021-08-11 15:37:16,553 - [INFO] - [160-65069992] close browser
+2021-08-11 15:37:16,585 - [INFO] - origin=MNL
+2021-08-11 15:37:16,590 - [INFO] - destination=NRT
+2021-08-11 15:37:16,594 - [INFO] - status= Delivered
+2021-08-11 15:37:16,598 - [INFO] - flight= 10 Aug
+2021-08-11 15:37:16,598 - [INFO] - [160-65069992] MNL -> NRT ,  Delivered  10 Aug
+2021-08-11 15:37:16,599 - [INFO] - [160-65069992] close page
+2021-08-11 15:37:16,599 - [INFO] - [160-65069992] Task18 done. (use 2.640625 s)
+2021-08-11 15:37:16,613 - [INFO] - [160-65087035] close browser
+2021-08-11 15:37:16,641 - [INFO] - origin=CGK
+2021-08-11 15:37:16,646 - [INFO] - destination=HKG
+2021-08-11 15:37:16,650 - [INFO] - status= Delivered
+2021-08-11 15:37:16,654 - [INFO] - flight= 05 Aug
+2021-08-11 15:37:16,654 - [INFO] - [160-65087035] CGK -> HKG ,  Delivered  05 Aug
+2021-08-11 15:37:16,654 - [INFO] - [160-65087035] close page
+2021-08-11 15:37:16,655 - [INFO] - [160-65087035] Task7 done. (use 4.265625 s)
+2021-08-11 15:37:20,298 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
+2021-08-11 15:37:20,428 - [INFO] - [160-65069922] close page
+2021-08-11 15:37:20,531 - [INFO] - [160-65069922] Task21 done. (use 2.4375 s)

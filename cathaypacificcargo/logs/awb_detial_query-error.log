@@ -127,3 +127,6 @@
 2021-08-11 15:34:35,015 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
 2021-08-11 15:34:39,063 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
 2021-08-11 15:35:34,117 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
+2021-08-11 15:37:04,662 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
+2021-08-11 15:37:13,110 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
+2021-08-11 15:37:20,298 - [ERROR] - File "C:\Python36\lib\site-packages\pyppeteer\launcher.py", line 133, in _cleanup_tmp_user_data_dir: [OSError] Unable to remove Temporary User Data
