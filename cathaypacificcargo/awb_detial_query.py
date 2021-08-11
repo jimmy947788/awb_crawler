@@ -235,7 +235,10 @@ if __name__ == '__main__':
             
             if os.name == 'nt':
                 upload_interesting_detial_result()
-    
+
+            time.sleep(5)
+            logger.info("wait 5 seconds")
+
     loop.close()         
     #logger.info("kill alll chrome")
     #kill_chrome.main() 
