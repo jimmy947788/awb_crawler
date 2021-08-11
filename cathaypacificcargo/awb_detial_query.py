@@ -12,6 +12,7 @@ import common
 import awb_interesting_generator
 from bs4 import BeautifulSoup
 import multiprocessing
+import paramiko
 
 # lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU\(s\)'
 MAX_TASK_COUNT = multiprocessing.cpu_count() 
@@ -147,6 +148,17 @@ async def run_batch_task(loop, batch_numbers):
     await asyncio.wait(task_list)
 
 
+def upload_interesting_detial_result():
+    localpath  =os.path.join(data_folder, "interesting_detial_result.csv")
+    remotepath  = "/home/pi/awb_crawler/cathaypacificcargo/data/interesting_detial_result.csv"
+    ssh = paramiko.SSHClient() 
+    ssh.load_host_keys(os.path.expanduser(os.path.join("~", ".ssh", "known_hosts")))
+    ssh.connect("192.168.0.150", username="pi", password="")
+    sftp = ssh.open_sftp()
+    sftp.put(localpath, remotepath)
+    sftp.close()
+    ssh.close() 
+
 def signal_handler(signum, frame):
     print('signal_handler: caught signal ' + str(signum))
     if signum == signal.SIGINT.value:
@@ -220,6 +232,9 @@ if __name__ == '__main__':
             loop.run_until_complete(run_batch_task(loop, batch_numbers))
             logger.info(f"=====> batch task all done")
             batch_numbers.clear()
+            
+            if os.name == 'nt':
+                upload_interesting_detial_result()
     
     loop.close()         
     #logger.info("kill alll chrome")
