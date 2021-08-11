@@ -10,6 +10,11 @@ import time
 from datetime import datetime
 import common
 import awb_interesting_generator
+from bs4 import BeautifulSoup
+import multiprocessing
+
+# lscpu | egrep 'Model name|Socket|Thread|NUMA|CPU\(s\)'
+MAX_TASK_COUNT = multiprocessing.cpu_count() 
 
 async def getTextFromFrame(page, selector, timeout=30000):
     try:
@@ -35,12 +40,11 @@ def printError(e):
 def printMsg(number, msg):
     logger.info(f"[{number}] {msg}")
 
-async def create_broeser():
+async def launch_browser():
     if os.name == 'nt':
             chromium_path = "C:/Users/Jimmy Wu/AppData/Local/pyppeteer/pyppeteer/local-chromium/588429/chrome-win32/chrome.exe"
     else:
         chromium_path = "/usr/bin/chromium-browser"
-    #userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36';
     headless = True # True: 沒有瀏覽器
     options = {
         "args": [
@@ -60,43 +64,66 @@ async def create_broeser():
     }
     return await launch(options) #'executablePath': exepath,, 'slowMo': 30
 
-async def get_awb_detail_tasks(number, taskId):
-    t = time.process_time()
-    printMsg(number, f"Task{taskId} start.")
-    page = await browsers[taskId].newPage()
-    try:  
+async def load_html_by_number(number):
+
+    try:
+        url = f"https://www.cathaypacificcargo.com/ManageYourShipment/TrackYourShipment/tabid/108/SingleAWBNo/{number}/language/en-US/Default.aspx"
+        browser = await launch_browser()
+        printMsg(number, "launch browser")
+        page = await browser.newPage()
+        printMsg(number, "new pagge")
+
         #await page.setUserAgent(userAgent)
         await page.setExtraHTTPHeaders({
-            'authority' :'www.cathaypacificcargo.com',
-            'path': '/en-us/manageyourshipment/trackyourshipment.aspx',
-            'upgrade-insecure-requests': '1',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-            'accept-encoding': 'gzip, deflate, br',
-            'accept-language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6,ko;q=0.5'
-        })
+                'authority' :'www.cathaypacificcargo.com',
+                'path': '/en-us/manageyourshipment/trackyourshipment.aspx',
+                'upgrade-insecure-requests': '1',
+                'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+                'accept-encoding': 'gzip, deflate, br',
+                'accept-language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6,ko;q=0.5'
+            })
 
+        printMsg(number, f"go to {url}")
         #await page.setViewport({'width': 0, 'height': 0})
-        printMsg(number, "Go to page for get detial.")
-        await page.goto(f"https://www.cathaypacificcargo.com/ManageYourShipment/TrackYourShipment/tabid/108/SingleAWBNo/{number}/language/en-US/Default.aspx", 
+        await page.goto(url, 
             { 
                 "waitUntil" : "load",
                 "timeout": 0 
             })                               
-        #html = await page.content()
+        
+        return await page.content()
+    except Exception as e:
+        printError(e)
+    finally:
+        await browser.close()
+        printMsg(number, "close browser")
 
-        origin = await getTextFromFrame(page, "#FreightStatus-Origin")
+async def queryTask(number, taskId):
+    t = time.process_time()
+    printMsg(number, f"Task{taskId} start.")
+
+    try:  
+       
+        html_doc = await load_html_by_number(number)
+        soup = BeautifulSoup(html_doc, 'lxml')
+        
+        origin = soup.select_one("#FreightStatus-Origin").text
         logger.info(f"origin={origin}")
-        destination = await getTextFromFrame(page, "#FreightStatus-Destination")
+        destination = soup.select_one("#FreightStatus-Destination").text
         logger.info(f"destination={destination}")
 
         status = ""
         flight = ""
         if origin and destination: 
-            status = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(2)", 5000)
-            status = status.replace(",", " ")
-            logger.info(f"status={status}")
-            flight = await getTextFromFrame(page, "#Latest_Status-Content > div > div:nth-child(5)", 5000)
-            logger.info(f"flight={flight}")
+            tag = soup.select_one("#Latest_Status-Content > div > div:nth-child(2)")
+            if tag :
+                status = tag.text
+                logger.info(f"status={status}")
+
+            tag = soup.select_one("#Latest_Status-Content > div > div:nth-child(5)")
+            if tag:
+                flight = tag.text
+                logger.info(f"flight={flight}")
             printMsg(number, f"{origin} -> {destination} , {status} {flight}")
 
         async with locker:
@@ -105,24 +132,15 @@ async def get_awb_detail_tasks(number, taskId):
     except Exception as e:
         printError(e)
     finally:
-        #await resultPage.close()
         printMsg(number, "close page")
-        await page.close()
-        #await browser.close()
-
         elapsed_time = time.process_time() - t
-        printMsg(number, f"Task{taskId}) done. (use {elapsed_time} s)")
+        printMsg(number, f"Task{taskId} done. (use {elapsed_time} s)")
 
 async def run_batch_task(loop, batch_numbers):
-    if len(browsers) != MAX_TASK_COUNT:
-        for i in range(MAX_TASK_COUNT):
-            b = await create_broeser()
-            browsers.append(b)
-
     task_list =[]
     i = 0
     for number in batch_numbers:
-        t = loop.create_task(get_awb_detail_tasks(number, i))
+        t = loop.create_task(queryTask(number, i))
         task_list.append(t)
         i+=1
     
@@ -137,7 +155,6 @@ def signal_handler(signum, frame):
         kill_chrome.main()
         sys.exit(1)
 
-MAX_TASK_COUNT = 14
 if __name__ == '__main__': 
 
     global interesting_detial_result_path
@@ -145,7 +162,6 @@ if __name__ == '__main__':
     global locker
     global loop
     global logger
-    global browsers
 
     worker_folder = pathlib.Path(__file__).parent.resolve()
     data_folder = os.path.join(worker_folder, 'data')
@@ -181,7 +197,6 @@ if __name__ == '__main__':
     #print(signal.SIGINT)
 
     batch_numbers= []
-    browsers = []
     locker = asyncio.Lock()
     #loop = asyncio.new_event_loop()
     #asyncio.set_event_loop(loop)
@@ -208,6 +223,6 @@ if __name__ == '__main__':
     
     loop.close()         
     #logger.info("kill alll chrome")
-    kill_chrome.main() 
+    #kill_chrome.main() 
 #asyncio.get_event_loop().run_until_complete(main())
 

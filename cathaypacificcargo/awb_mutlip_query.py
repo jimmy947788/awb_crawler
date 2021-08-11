@@ -31,8 +31,8 @@ data_folder = os.path.join(worker_folder, 'data')
 
 logger = common.init_logger(worker_folder, "awb_mutlip_query")
 
-start_number = 6022000
-end_number = 7000000
+start_number = 7000000
+end_number = 8000000
 batch_number = str(start_number)[0]
 multi_query_result_path = os.path.join(data_folder, f"multi_query_result_{batch_number}.csv")
 logger.info(f"multi_query_result_path={multi_query_result_path}" )
@@ -67,7 +67,7 @@ while True:
 
     if r.status_code == requests.codes.ok:
         #print(r.text)
-        soup = BeautifulSoup(r.text)
+        soup = BeautifulSoup(r.text, "lxml")
         #print(soup)
         rows= soup.select("#dnn_ctr863_ViewTnT_ctl00_plMultipleAWB > div > div.content > div.content_article > table > tr")
         for rowTag in rows[1:]:
